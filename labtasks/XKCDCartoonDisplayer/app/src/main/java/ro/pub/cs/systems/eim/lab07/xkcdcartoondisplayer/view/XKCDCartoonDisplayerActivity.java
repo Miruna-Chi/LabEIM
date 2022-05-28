@@ -17,6 +17,7 @@ public class XKCDCartoonDisplayerActivity extends AppCompatActivity {
     private TextView xkcdCartoonUrlTextView;
     private Button previousButton, nextButton;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
