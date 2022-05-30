@@ -74,6 +74,8 @@ public class PracticalTest02MainActivity extends AppCompatActivity {
                 return;
             }
 
+            Log.v(Constants.TAG, "Word query text = " + word);
+
             getFortuneTextView.setText(Constants.EMPTY_STRING);
 
             clientThread = new ClientThread(clientAddress, Integer.parseInt(clientPort), word, getFortuneTextView);

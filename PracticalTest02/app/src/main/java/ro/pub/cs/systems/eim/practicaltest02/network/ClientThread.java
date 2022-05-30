@@ -37,20 +37,26 @@ public class ClientThread extends Thread {
             }
             BufferedReader bufferedReader = Utilities.getReader(socket);
             PrintWriter printWriter = Utilities.getWriter(socket);
+
             if (bufferedReader == null || printWriter == null) {
                 Log.e(Constants.TAG, "[CLIENT THREAD] Buffered Reader / Print Writer are null!");
                 return;
             }
+
+            Log.v(Constants.TAG, "[CLIENT THREAD] Printiiing");
+
             printWriter.println(word);
             printWriter.flush();
 
-            String weatherInformation;
-            while ((weatherInformation = bufferedReader.readLine()) != null) {
-                final String finalizedWeateherInformation = weatherInformation;
+            Log.v(Constants.TAG, "[CLIENT THREAD] Printed");
+
+            String fortuneInformation;
+            while ((fortuneInformation = bufferedReader.readLine()) != null) {
+                final String finalizedFortuneInformation = fortuneInformation;
                 getFortuneTextView.post(new Runnable() {
                    @Override
                     public void run() {
-                       getFortuneTextView.setText(finalizedWeateherInformation);
+                       getFortuneTextView.setText(finalizedFortuneInformation);
                    }
                 });
             }
